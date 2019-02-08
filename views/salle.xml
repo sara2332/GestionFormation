@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+
+		<record id="view_salle_tree" model="ir.ui.view">
+            <field name="name">salle.salle.tree</field>
+            <field name="model">salle.salle</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Salle">
+                    <field name="name" />
+                    <field name="libre" />
+					<field name="nb_place" />
+					<field name="sessions_ids" />
+                </tree>
+            </field>
+        </record>
+		<record id="view_salle_form" model="ir.ui.view">
+            <field name="name">salle.salle.form</field>
+            <field name="model">salle.salle</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Salle">
+				     <sheet>
+					       <group>
+                               <field name="name" />
+                               <field name="libre" />
+							   <field name="sessions_ids" />
+						   </group>
+				     </sheet>  
+			    </form>
+            </field>
+        </record>
+<record model="ir.actions.act_window" id="action_view_salle">
+            <field name="name">Salle</field>
+            <field name="res_model">salle.salle</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,search,kanban</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Creer une nouvelle salle
+                </p>
+            </field>
+</record>
+<menuitem id="salle_menu" name="Salles" parent="main_formation_menu"   
+                  action="action_view_salle"/>
+    </data>
+</odoo>

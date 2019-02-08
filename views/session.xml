@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+
+		<record id="view_session_tree" model="ir.ui.view">
+            <field name="name">session.session.tree</field>
+            <field name="model">session.session</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Session">
+                    <field name="name" />
+                    <field name="nb_participant" />
+					<field name="date_debut" />
+					<field name="date_fin" />
+					<field name="duree" />
+					<field name="state" />
+					<field name="formation_id" />
+					<field name="formateurs_ids" />
+					<field name="salles_ids" />
+					<field name="candidats_ids" />
+                </tree>
+            </field>
+        </record>
+		<record id="view_session_form" model="ir.ui.view">
+            <field name="name">session.session.form</field>
+            <field name="model">session.session</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Session">
+				<header>
+				<field name="state" widget="statusbar" statusbar_visible="a,b" clickable="1" />
+				<button string="Ajouter" type="action" name="%(wizard_attestation_action)d" class="btn-primary" groups="gestion_formation.group_manager,base.group_system" />
+				</header>
+				     <sheet>
+					       <group string="Section1">
+                               <field name="name" />
+                               <field name="nb_participant" />
+					           <field name="date_debut" />
+					           <field name="date_fin" />
+							   <field name="formation_id" />
+							   <field name="formateurs_ids" />
+					           <field name="salles_ids" />
+					           <field name="candidats_ids" />
+						   </group>
+						   <group string="Section2">
+					           <field name="duree" />
+						   </group>
+				     </sheet>  
+			    </form>
+            </field>
+        </record>
+		<record id="view_session_kanban" model="ir.ui.view">
+            <field name="name">session.session.kanban</field>
+            <field name="model">session.session</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <kanban string="Session">
+				   <templates>
+				   <t t-name="kanban-box">
+				   <div class="oe_module_vignette" style="background:#EEE">
+                      <div class="oe_module_desc">
+					<h2><a type="edit"><field name="name" /></a></h2>
+					<ul>
+                    <li><strong><field name="nb_participant" /></strong></li>
+					<li><strong><field name="date_debut" /></strong></li>
+					<li><strong><field name="date_fin" /></strong></li>
+					<li><strong><field name="duree" /></strong></li>
+					<li><strong><field name="state" /></strong></li>
+					</ul>
+					</div>
+					</div>
+					</t>
+				   </templates>
+                </kanban>
+            </field>
+        </record>
+<record model="ir.actions.act_window" id="action_view_session">
+            <field name="name">Session</field>
+            <field name="res_model">session.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="domain">[]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Creer une nouvelle session
+                </p>
+            </field>
+</record>
+<menuitem id="session_menu" name="Sessions" parent="main_formation_menu"   
+                  action="action_view_session"/>
+    </data>
+</odoo>
