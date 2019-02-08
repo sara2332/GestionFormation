@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acces_candidat_manager,candidat.manager,gestion_formation.model_candidat_candidat,group_manager,1,1,1,1
+acces_formation_manager,formation.manager,gestion_formation.model_formation_formation,group_manager,1,1,1,1
+acces_formateur_manager,formateur.manager,gestion_formation.model_formateur_formateur,group_manager,1,1,1,1
+acces_session_manager,session.manager,gestion_formation.model_session_session,group_manager,1,1,1,1
+acces_salle_manager,salle.manager,gestion_formation.model_salle_salle,group_manager,1,1,1,1
+acces_attestation_manager,attestation.manager,gestion_formation.model_attestation_attestation,group_manager,1,1,1,1
+acces_candidat_secretaire,candidat.secretaire,gestion_formation.model_candidat_candidat,group_secretaire,0,1,1,1
+acces_formation_secretaire,formation.secretaire,gestion_formation.model_formation_formation,group_secretaire,1,1,1,1
+acces_formateur_secretaire,formateur.secretaire,gestion_formation.model_formateur_formateur,group_secretaire,0,1,1,1
+acces_session_secretaire,session.secretaire,gestion_formation.model_session_session,group_secretaire,1,1,1,1
+acces_salle_secretaire,salle.secretaire,gestion_formation.model_salle_salle,group_secretaire,0,1,0,0
+acces_attestation_secretaire,attestation.secretaire,gestion_formation.model_attestation_attestation,group_secretaire,1,1,1,1
+
+
+

@@ -1,0 +1,10 @@
+<odoo>
+
+        <record id="group_manager" model="res.groups">
+            <field name="name">Manager</field>
+        </record>
+		<record id="group_secretaire" model="res.groups">
+            <field name="name">Secretaire</field>
+        </record>
+
+</odoo>
