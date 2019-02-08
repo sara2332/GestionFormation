@@ -1,0 +1,40 @@
+<odoo>
+
+    <report
+        id="report_attestation"
+        model="attestation.attestation"
+        string="Rapport attestation"
+        name="gestion_formation.report_attestation_view"
+        report_type="qweb-pdf" />
+
+    <template id="report_attestation_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+			          <h2>Attestation de participation</h2>
+				      <p>Formation :<span t-field="doc.formation_id.name"/></p>
+					  <p>Nom :<span t-field="doc.candidat_id.name"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+	<record id="paperformat_specifique" model="report.paperformat">
+	<field name="name">Attestation format</field>
+	<field name="default" eval="True"/>
+	<field name="format">custom</field>
+	<field name="page_height">210</field>
+	<field name="page_width">270</field>
+	<field name="orientation">Portrait</field>
+	<field name="margin_top">8</field>
+	<field name="margin_bottom">8</field>
+	<field name="margin_left">4</field>
+	<field name="margin_right">4</field>
+	<field name="header_line" eval="False"/>
+	<field name="header_spacing">3</field>
+	<field name="dpi">90</field>
+	</record>
+
+
+</odoo>
